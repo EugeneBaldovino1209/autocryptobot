@@ -1,2 +1,2 @@
-# autocryptobot
-bot for codecanyon
+# Auto Crypto Bot
+A Multi-tenant TraderBot
