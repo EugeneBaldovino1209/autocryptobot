@@ -59,7 +59,7 @@ function VariableInput(props) {
             <span className="input-group-text bg-secondary">
                 is
             </span>
-            <select id="operator" className="form-select" onChange={onOperatorChange}>
+            <select id="operator" className="form-select" onChange={onOperatorChange} value={operator}>
                 {
                     typeof index.example === 'number'
                         ? (

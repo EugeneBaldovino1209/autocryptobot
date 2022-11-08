@@ -95,10 +95,10 @@ async function updateStrategy(req, res, next) {
     const updatedStrategy = await strategiesRepository.updateStrategy(id, newStrategy);
 
     if (currentStrategy.isActive)
-        stopStrategyComponents(currentStrategy);
+        await stopStrategyComponents(currentStrategy);
 
     if (updatedStrategy.isActive)
-        startStrategyComponents(updatedStrategy);
+        await startStrategyComponents(updatedStrategy);
 
     res.json(updatedStrategy);
 }

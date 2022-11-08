@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "AutoCryptoBot",
+            "name": "beholder",
             "script": "npm",
             "args": "start"
         }

@@ -881,7 +881,7 @@ module.exports = class Beholder {
 
         const automations = this.findAutomations(memoryKey);
 
-        if (!automations || !automations.length || this.isLocked(automations.map(a => a.id))) {
+        if (!automations || !automations.length || this.isLocked(automations.filter(a => a).map(a => a.id))) {
             if (LOGS) console.log(`Auto Crypto Bot has no automations for memoryKey: ${memoryKey} or the brain is locked`);
             return false;
         }

@@ -499,7 +499,7 @@ async function backtestCandle(i, ohlc, userId, indexes, symbol, interval) {
         results.push(...tickerResult);
     }
 
-    let previousCandleResult = await hydra.updateMemory(symbol, indexKeys.PREVIOUS_CANDLE, null, {
+    let previousCandleResult = await hydra.updateMemory(symbol, indexKeys.PREVIOUS_CANDLE, interval, {
         previous: previousPreviousCandle,
         current: previousCandle
     }, true, userId);
@@ -509,7 +509,7 @@ async function backtestCandle(i, ohlc, userId, indexes, symbol, interval) {
         results.push(...previousCandleResult);
     }
 
-    let lastCandleResult = await hydra.updateMemory(symbol, indexKeys.LAST_CANDLE, null, {
+    let lastCandleResult = await hydra.updateMemory(symbol, indexKeys.LAST_CANDLE, interval, {
         previous: previousCandle,
         current: lastCandle
     }, true, userId);
