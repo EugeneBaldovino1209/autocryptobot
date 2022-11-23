@@ -1,2 +1,2 @@
-# Auto Crypto Bot
+# Auto-Crypto-Bot
 A Multi-tenant TraderBot
