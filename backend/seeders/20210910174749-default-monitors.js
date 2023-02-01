@@ -26,7 +26,7 @@ module.exports = {
           symbol: '*',
           interval: null,
           userId: null,
-          isActive: true,
+          isActive: false,
           isSystemMon: true,
           indexes: null,
           logs: false,

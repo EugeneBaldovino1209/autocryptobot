@@ -72,7 +72,7 @@ function getLightOrder(updatedOrder) {
     orderCopy.activatePrice = orderCopy.activatePrice ? parseFloat(orderCopy.activatePrice) : null;
     orderCopy.net = orderCopy.net ? parseFloat(orderCopy.net) : null;
     orderCopy.quantity = orderCopy.quantity ? parseFloat(orderCopy.quantity) : null;
-    
+
     return orderCopy;
 }
 
@@ -193,7 +193,8 @@ function deleteMemory(symbol, index, interval) {
 
 async function clearWallet(userId) {
     const balances = await cache.search(`*WALLET_${userId}`);
-    await Promise.all(balances.map(b => cache.unset(b.key)));
+    if (balances && Array.isArray(balances) && balances.length)
+        await Promise.all(balances.map(b => cache.unset(b.key)));
 }
 
 function getLightAction(a) {

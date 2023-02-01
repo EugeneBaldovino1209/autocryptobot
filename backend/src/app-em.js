@@ -39,6 +39,16 @@ function startTickerMonitor(monitorId, broadcastLabel, logs) {
             const obj = {};
             markets.map(mkt => obj[mkt.symbol] = mkt);
             if (broadcastLabel && WSS) WSS.broadcast({ [broadcastLabel]: obj });
+
+            //simulação de book
+            const books = markets.map(mkt => {
+                const book = { symbol: mkt.symbol, bestAsk: mkt.close, bestBid: mkt.close };
+                hydra.updateMemory(mkt.symbol, indexKeys.BOOK, null, book);
+                return book;
+            })
+
+            if (WSS) WSS.broadcast({ book: books });
+            //fim simulação de book
         } catch (err) {
             if (logs) logger('M:' + monitorId, err)
         }
